@@ -8,7 +8,7 @@ class App extends Component {
         return (
             <div className='app-containter'>
                 <NavBar/>
-                GitHub Search
+                {this.props.children}
             </div>
         );
     }
