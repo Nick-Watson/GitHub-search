@@ -42,3 +42,38 @@ export function fetchReposError (err) {
     data: err
   };
 }
+
+export function fetchReadMe (owner, repoName) {
+  const url = `https://api.github.com/repos/${owner}/${repoName}/readme`;
+
+  return function (dispatch) {
+    dispatch(fetchReadMeRequest());
+    axios.get(url)
+      .then(res => {
+        dispatch(fetchReadMeSuccess(res.data));
+      })
+      .catch(err => {
+        dispatch(fetchReadMeError(err));
+      });
+  };
+}
+
+export function fetchReadMeRequest () {
+  return {
+    type: types.FETCH_README_REQUEST
+  };
+}
+
+export function fetchReadMeSuccess (ReadMe) {
+  return {
+    type: types.FETCH_README_SUCCESS,
+    data: ReadMe
+  };
+}
+
+export function fetchReadMeError (err) {
+  return {
+    type: types.FETCH_README_ERROR,
+    data: err
+  };
+}
