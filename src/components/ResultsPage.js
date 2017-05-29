@@ -1,6 +1,7 @@
 import React from 'react';
 import {Component} from 'react';
 import {connect} from 'react-redux';
+import RepoCard from './RepoCard';
 import {fetchRepos} from '../actions/actions';
 
 
@@ -23,7 +24,7 @@ class ResultsPage extends Component {
             <div className='results-page-container'>
                 <h2>Results</h2>
                 {this.props.results.map((repo, i) => {
-                    return <p key={i}> {repo.name}</p>;
+                    return <RepoCard key={i} {...repo}/>;
                 })}
             </div>
         );
@@ -46,3 +47,5 @@ function mapDispatchToProps (dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ResultsPage);
+
+
