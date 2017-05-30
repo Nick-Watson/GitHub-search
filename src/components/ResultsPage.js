@@ -46,6 +46,12 @@ function mapDispatchToProps (dispatch) {
   };
 }
 
+ResultsPage.propTypes = {
+	fetchRepos: React.PropTypes.func,
+    params: React.PropTypes.object,
+    results: React.PropTypes.array
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(ResultsPage);
 
 

@@ -62,5 +62,22 @@ function mapDispatchToProps (dispatch) {
     },
   };
 }
+
+RepoCard.propTypes = {
+	fetchReadMe: React.PropTypes.func,
+    owner: React.PropTypes.object,
+    name: React.PropTypes.string,
+    readMe: React.PropTypes.string,
+    loading: React.PropTypes.bool,
+    updated_at: React.PropTypes.string,
+    html_url: React.PropTypes.string,
+    description: React.PropTypes.string,
+    language: React.PropTypes.string,
+    watchers_count: React.PropTypes.number,
+    stargazers_count: React.PropTypes.number,
+    forks_count: React.PropTypes.number,
+    open_issues_count: React.PropTypes.number
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(RepoCard);
 

@@ -49,4 +49,8 @@ function mapDispatchToProps (dispatch) {
   };
 }
 
+NavBar.propTypes = {
+	textInput: React.PropTypes.string
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
