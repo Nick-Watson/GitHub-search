@@ -64,10 +64,10 @@ export function fetchReadMeRequest () {
   };
 }
 
-export function fetchReadMeSuccess (ReadMe) {
+export function fetchReadMeSuccess (readMe) {
   return {
     type: types.FETCH_README_SUCCESS,
-    data: ReadMe
+    data: readMe
   };
 }
 
