@@ -18,11 +18,21 @@ class ResultsPage extends Component {
 	}
 
     render () {
-        if (this.props.loading) return (<div className='results-page-container'>Loading..</div>);
-        if (this.props.results.length === 0) return (<div className='results-page-container'>No Results</div>);
+        if (this.props.loading) return (
+        <div className='loader-container'>
+            <div className="loader"></div>
+            </div>
+        );
+
+        if (this.props.results.length === 0) return (
+        <div className='results-page-container-nr'>
+            <h4>No Results</h4><img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" alt="no results" id='home-pic'/>
+        </div>
+        );
+
         return (
             <div className='results-page-container'>
-                <h2>Results</h2>
+                <h4>Results</h4>
                 {this.props.results.map((repo, i) => {
                     return <RepoCard key={i} {...repo}/>;
                 })}
@@ -49,7 +59,8 @@ function mapDispatchToProps (dispatch) {
 ResultsPage.propTypes = {
 	fetchRepos: React.PropTypes.func,
     params: React.PropTypes.object,
-    results: React.PropTypes.array
+    results: React.PropTypes.array,
+    loading: React.PropTypes.bool
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ResultsPage);

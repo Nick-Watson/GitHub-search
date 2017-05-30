@@ -5,18 +5,20 @@ import {updateTextInput} from '../actions/actions';
 
 function NavBar (props) {
     return (
-        <nav className="navbar navbar-inverse navbar-static-top w-100">
+        <nav className="navbar navbar-inverse navbar-static-top">
             <div className="container-fluid">
                 <div className="navbar-header">
                     <a className="navbar-brand" href="/">GitHub Search</a>
                 </div>
-                <form className="navbar-form navbar-left" role="search">
-                    <div className="form-group">
+                <form className="navbar-form navbar-right" role="search">
+                    <div className='input-group'>
                         <input type="text" className="form-control" placeholder="Repository Name" onChange={handleChange} value={props.textInput}/>
+                        <div className='input-group-btn'>
+                            <button type="submit" className="btn btn-default" onClick={handleSubmit}>
+                                <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </div>
                     </div>
-                    <button type="submit" className="btn btn-default" onClick={handleSubmit}>
-                        <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    </button>
                 </form>
             </div>
         </nav>

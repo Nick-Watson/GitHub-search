@@ -16,11 +16,11 @@ function RepoCard (props) {
     let time = moment(props.updated_at).fromNow();
     return (
         <div className="repo-info">
-            <div className='repo-name'><a href={props.html_url} target='blank'>{props.owner.login}/{props.name}</a></div>
+            <a className='repo-name' href={props.html_url} target='blank'>{props.owner.login}/{props.name}</a>
+            <button type="button" id='repo-link'className="btn btn-primary btn-xs" data-toggle="modal" data-target="#exampleModalLong" onClick={handleClick}>Quick View</button>
             <div className='repo-desc'>{props.description}</div>
             <div className='repo-update'>Updated {time}</div>
             <div className='repo-lang'>{props.language}</div>
-            <button type="button" id='repo-link'className="btn btn-primary btn-xs" data-toggle="modal" data-target="#exampleModalLong" onClick={handleClick}>Quick View</button>
 
             <div className="modal fade" id="exampleModalLong" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                 <div className="modal-dialog modal-lg" role="document">
