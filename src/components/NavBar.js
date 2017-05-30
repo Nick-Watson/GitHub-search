@@ -29,7 +29,8 @@ function NavBar (props) {
     function handleSubmit (e) {
         e.preventDefault();
         if (props.textInput) {
-            browserHistory.push(`/${props.textInput}`);
+            const searchTerm = props.textInput.replace('.', '-');
+            browserHistory.push(`/${searchTerm}`);
         }
     }
 }
