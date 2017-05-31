@@ -5,7 +5,7 @@ import {updateTextInput} from '../actions/actions';
 
 function NavBar (props) {
     return (
-        <nav className="navbar navbar-inverse navbar-static-top">
+        <nav className="navbar navbar-inverse navbar-static-top" id="nav">
             <div className="container-fluid">
                 <div className="navbar-header">
                     <a className="navbar-brand" href="/">GitHub Search</a>

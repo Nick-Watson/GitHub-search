@@ -11,16 +11,17 @@ function RepoCard (props) {
         props.fetchReadMe(props.owner.login, props.name);
     }
 
-    let readMe = <ReactMarkdown source={props.readMe}/>;
-    if (props.loading) readMe = <p>Loading..</p>;
+    let loader = <div className='loader-container'><div className="loader"></div></div>;
+    let readMe = props.loading ?  loader : <ReactMarkdown source={props.readMe}/>;
     let time = moment(props.updated_at).fromNow();
+    let updateLang = props.language ? `Updated ${time}  |  ${props.language}` : `Updated  ${time}`;
+    
     return (
         <div className="repo-info">
             <a className='repo-name' href={props.html_url} target='blank'>{props.owner.login}/{props.name}</a>
-            <button type="button" id='repo-link'className="btn btn-primary btn-xs" data-toggle="modal" data-target="#exampleModalLong" onClick={handleClick}>Quick View</button>
+            <div><button type="button" id='repo-link'className="btn btn-primary btn-xs" data-toggle="modal" data-target="#exampleModalLong" onClick={handleClick}>Quick View</button></div>
+            <div className='repo-update'>{updateLang}</div>
             <div className='repo-desc'>{props.description}</div>
-            <div className='repo-update'>Updated {time}</div>
-            <div className='repo-lang'>{props.language}</div>
 
             <div className="modal fade" id="exampleModalLong" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                 <div className="modal-dialog modal-lg" role="document">
